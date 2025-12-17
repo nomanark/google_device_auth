@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: google_device_auth
+Version: 0.1.0
+Summary: A lightweight tool for Google OAuth2 Device Flow on limited-input devices.
+Home-page: https://github.com/yourusername/google-device-auth-python
+Author: 
+Author-email: your.email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.1
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Google Device Auth for Python
+
+A lightweight Python client for the **Google OAuth 2.0 Device Authorization Flow**. 
+
+This library is designed for **limited-input devices** (IoT, Raspberry Pi, Smart TVs) or **CLI tools** where a browser redirect is not possible. It handles the full flow: requesting codes, polling for user authorization, and saving credentials locally.
+
+## Features
+- 🚀 **Headless Authentication:** No local browser required.
+- 🔄 **Automatic Polling:** Handles Google's polling intervals and rate limits (slow_down).
+- 💾 **Session Persistence:** Saves Refresh Tokens, Client ID, and Secret to a JSON file for easy reuse.
+
+## Prerequisites
+
+```bash
+pip install requests
+
+## Example Usage
+
+import google_auth
+
+# 1. Setup your credentials and scope
+client_id = "YOUR_GOOGLE_CLIENT_ID"
+client_secret = "YOUR_GOOGLE_CLIENT_SECRET"
+scopes = ["[https://www.googleapis.com/auth/drive.metadata.readonly](https://www.googleapis.com/auth/drive.metadata.readonly)"]
+
+# 2. Initialize the auth client
+# You can optionally pass a custom path for the token file
+auth = google_auth.GoogleDeviceAuth(client_id, client_secret, scopes, token_file="my_tokens.json")
+
+# 3. Start the authentication flow
+# This will print the URL and User Code to the console
+auth.authenticate()
