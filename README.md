@@ -5,9 +5,9 @@ A lightweight Python client for the **Google OAuth 2.0 Device Authorization Flow
 This library is designed for **limited-input devices** (IoT, Raspberry Pi, Smart TVs) or **CLI tools** where a browser redirect is not possible. It handles the full flow: requesting codes, polling for user authorization, and saving credentials locally.
 
 ## Features
-- 🚀 **Headless Authentication:** No local browser required.
-- 🔄 **Automatic Polling:** Handles Google's polling intervals and rate limits (slow_down).
-- 💾 **Session Persistence:** Saves Refresh Tokens, Client ID, and Secret to a JSON file for easy reuse.
+- **Headless Authentication:** No local browser required.
+- **Automatic Polling:** Handles Google's polling intervals and rate limits (slow_down).
+- **Session Persistence:** Saves Refresh Tokens, Client ID, and Secret to a JSON file for easy reuse.
 
 ## Prerequisites
 
